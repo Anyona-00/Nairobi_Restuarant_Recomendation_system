@@ -112,6 +112,21 @@ const theMagic = async () => {
     }
   });
 
+  //the rest
+  app.get("/restaurants", async (req, res) => {
+    try {
+      // orders the rating in Ascending order
+      const result = await client.query(
+        `SELECT * FROM top_nairobi_restaurants ORDER BY rating ASC `
+      );
+
+      const restaurant = result.rows;
+      res.json(restaurant);
+    } catch (err) {
+      res.status(500).send(err.message);
+    }
+  });
+
   //UPDATE
   app.patch("/restaurants/:id", async (req, res) => {
     try {
