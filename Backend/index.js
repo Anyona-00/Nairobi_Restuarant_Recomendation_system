@@ -2,6 +2,7 @@ const express = require("express");
 const pg = require("pg");
 const app = express();
 const { Client } = pg;
+const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 
 const theMagic = async () => {
@@ -16,6 +17,7 @@ const theMagic = async () => {
 
   app.use(express.json());
 
+  app.use(cors());
   //Validates the RestaurantData inputs
   function validateRestaurantData(data) {
     const errors = [];
