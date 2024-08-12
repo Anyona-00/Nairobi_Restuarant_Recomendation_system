@@ -3,13 +3,11 @@ import { brokenImg, instagram, star, twitter } from "../assets";
 import { useEffect } from "react";
 import axios from "axios";
 
-const DisplayCard = () => {
+const DisplayCard = ({ endpoint }) => {
   const [restuarantData, setrestuarantData] = useState([]);
   useEffect(() => {
     async function GetRestuarant() {
-      const response = await axios.get(
-        "http://localhost:3000/restaurants/recommended"
-      );
+      const response = await axios.get(endpoint);
       setrestuarantData(response.data);
 
       console.log(response);
@@ -18,7 +16,7 @@ const DisplayCard = () => {
   });
 
   return (
-    <div className="flex flex-row mx-auto  w-4/5">
+    <>
       {restuarantData.map((restuarant) => {
         return (
           <div className="card bg-base-100 w-64 m-4 shadow-md">
@@ -45,7 +43,7 @@ const DisplayCard = () => {
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 
