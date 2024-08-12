@@ -22,7 +22,7 @@ const DisplayCard = ({ endpoint }) => {
           <div className="card bg-base-100 w-64 m-4 shadow-md">
             <figure>
               <img
-                src={brokenImg}
+                src={restuarant.image_url || brokenImg}
                 alt="img"
                 className="h-32 w-full object-cover"
               />
