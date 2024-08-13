@@ -1,4 +1,22 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
+import DisplayCard from "../Components/DisplayCard";
+
 const Head = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [displayedRestuarants, setDisplayedRestuarants] = useState([]);
+
+  useEffect(() => {
+    async function GetRestuarant() {
+      const response = await axios.get(
+        `http://localhost:3000/restaurants/search?term=${searchTerm}`
+      );
+
+      setDisplayedRestuarants(response.data);
+    }
+    GetRestuarant();
+  }, [searchTerm]);
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -8,12 +26,22 @@ const Head = () => {
         <div className="flex-none gap-2">
           <div className="form-control">
             <input
-              type="text"
               placeholder="Search"
               className="input input-bordered w-24 md:w-auto"
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
             />
           </div>
-          <div className="dropdown dropdown-end">
+
+          {/*<DisplayCard
+            endpoint={
+              "http://localhost:3000/restaurants/search?term=${searchTerm}"
+            }
+          />*/}
+
+          {/* <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
@@ -43,7 +71,7 @@ const Head = () => {
                 <a>Logout</a>
               </li>
             </ul>
-          </div>
+          </div>*/}
         </div>
       </div>
     </div>
