@@ -26,7 +26,14 @@ const DisplayCard = ({ restaurants }) => {
             <p className="text-sm truncate-2">{restaurant.description}</p>
             <div className="card-actions justify-end">
               <div className="badge badge-outline">{restaurant.location}</div>
-              <div className="badge badge-outline">Visit</div>
+              {/*<div className="badge badge-outline">Visit</div>*/}
+              <a
+                className="badge badge-outline bg-pink-300 text-black"
+                href={restaurant.website_url || "https://www.toiletswipe.com/"}
+                target="_blank"
+              >
+                Visit
+              </a>
             </div>
           </div>
         </div>
