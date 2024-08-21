@@ -44,12 +44,14 @@ const theMagic = async () => {
       }
 
       const result = await client.query(
-        `INSERT INTO top_nairobi_restaurants (name, location, rating, description) VALUES($1,$2,$3,$4)`,
+        `INSERT INTO top_nairobi_restaurants (name, location, rating, description,Image_url,website_url) VALUES($1,$2,$3,$4,$5,$6)`,
         [
           req.body.name,
           req.body.location,
           req.body.rating,
           req.body.description,
+          req.body.Image_url,
+          req.body.website_url,
         ]
       );
 
