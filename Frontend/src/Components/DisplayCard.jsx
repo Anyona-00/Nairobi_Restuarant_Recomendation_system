@@ -4,6 +4,7 @@ const DisplayCard = ({ restaurants }) => {
   if (restaurants.length === 0) {
     return <p>No restaurants found.</p>;
   }
+  
   return (
     <>
       {restaurants.map((restaurant) => (

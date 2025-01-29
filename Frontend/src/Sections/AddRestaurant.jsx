@@ -1,4 +1,4 @@
-/*import axios from "axios";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import Form from "../Components/Form";
 
@@ -50,4 +50,5 @@ const AddRestaurant = () => {
   );
 };
 
-export default AddRestaurant;*/
+export default AddRestaurant;
+top_nairobi_restaurants
