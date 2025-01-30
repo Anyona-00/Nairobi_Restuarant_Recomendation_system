@@ -64,7 +64,8 @@ const theMagic = async () => {
   //READ
 
   //1. Search
-  app.get("/restaurants/search", async (req, res) => {
+  {
+    /*app.get("/restaurants/search", async (req, res) => {
     try {
       const { term } = req.query;
 
@@ -95,7 +96,8 @@ const theMagic = async () => {
     } catch (err) {
       res.status(500).send(err.message);
     }
-  });
+  });*/
+  }
 
   //2.recommend
   app.get("/restaurants/recommended", async (req, res) => {
